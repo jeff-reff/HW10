@@ -15,7 +15,7 @@ public class Message {
     }
 
     public String getSender(){
-        return null;
+        return sender;
     }
 
     public List<String> getRecipients(){
