@@ -19,7 +19,7 @@ public class Message {
     }
 
     public List<String> getRecipients(){
-        return null;
+        return recipients;
     }
 
     public LocalDateTime getTimestamp(){
