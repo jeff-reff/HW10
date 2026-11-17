@@ -54,6 +54,6 @@ public class TestMessage {
         Message message = new Message(user1, List.of(user2), "hello world");
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
 
-        assertEquals("[" + message.getTimestamp().format(formatter) + "] bob -> jake: hello world", message.toString());
+        assertEquals("[" + message.getTimestamp().format(formatter) + "] bob -> [jake]: hello world", message.toString());
     }
 }

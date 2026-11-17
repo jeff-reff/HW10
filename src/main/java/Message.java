@@ -33,6 +33,7 @@ public class Message {
 
     @Override
     public String toString(){
-        return null;
+        String time = timestamp.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+        return "[" + time + "] " + sender + " -> " + recipients + ": " + messageContent;
     }
 }
