@@ -14,4 +14,14 @@ public class TestMessage {
 
         assertEquals(user1, message.getSender());
     }
+
+    @Test
+    public void testGetRecipients(){
+        String user1 = "bob";
+        String user2 = "jake";
+
+        Message message = new Message(user1, List.of(user2), "hello world");
+
+        assertEquals(List.of(user2), message.getRecipients());
+    }
 }
