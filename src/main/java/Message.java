@@ -23,7 +23,7 @@ public class Message {
     }
 
     public LocalDateTime getTimestamp(){
-        return null;
+        return timestamp;
     }
 
     public boolean isUserInvolved (String user){
