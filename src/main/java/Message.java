@@ -27,7 +27,7 @@ public class Message {
     }
 
     public String getMessageContent(){
-        return null;
+        return messageContent;
     }
 
     public boolean isUserInvolved (String user){
