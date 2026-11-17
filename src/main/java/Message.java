@@ -1,4 +1,5 @@
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class Message {
@@ -30,9 +31,8 @@ public class Message {
         return messageContent;
     }
 
-    public boolean isUserInvolved (String user){
-        return false;
+    @Override
+    public String toString(){
+        return null;
     }
-
-
 }

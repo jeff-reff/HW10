@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.Test;
 
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -43,5 +44,16 @@ public class TestMessage {
         Message message = new Message(user1, List.of(user2), "hello world");
 
         assertEquals("hello world", message.getMessageContent());
+    }
+
+    @Test
+    public void testToString(){
+        String user1 = "bob";
+        String user2 = "jake";
+
+        Message message = new Message(user1, List.of(user2), "hello world");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+
+        assertEquals("[" + message.getTimestamp().format(formatter) + "] bob -> jake: hello world", message.toString());
     }
 }
