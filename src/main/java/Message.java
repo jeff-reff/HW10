@@ -26,6 +26,10 @@ public class Message {
         return timestamp;
     }
 
+    public String getMessageContent(){
+        return null;
+    }
+
     public boolean isUserInvolved (String user){
         return false;
     }

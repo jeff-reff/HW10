@@ -34,4 +34,14 @@ public class TestMessage {
 
         assertNotNull(message.getTimestamp());
     }
+
+    @Test
+    public void testGetMessageContent(){
+        String user1 = "bob";
+        String user2 = "jake";
+
+        Message message = new Message(user1, List.of(user2), "hello world");
+
+        assertEquals("hello world", message.getMessageContent());
+    }
 }
