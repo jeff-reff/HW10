@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
     private final String userName;
     private Message lastMessageSent;
@@ -17,7 +20,9 @@ public class User {
     }
 
     public void sendMessage(String messageContent, User recipients){
-
+        List<User> recipientList = new ArrayList<>(List.of(recipients));
+        messageSnapshot = null;
+        lastMessageSent = server.sendMessage(this, recipientList, messageContent);
     }
 
     public void recieveMessage(Message message){
@@ -26,5 +31,17 @@ public class User {
 
     public void undoLastMessage() {
 
+    }
+
+    public void addMessageToHistory(Message message){
+        chatHistory.addMessage(message);
+    }
+
+    public void removeMessageFromHistory(Message message){
+        chatHistory.removeMessage(message);
+    }
+
+    public List<Message> viewChatHistory(){
+        return chatHistory.getMessages();
     }
 }
