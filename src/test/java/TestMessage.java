@@ -49,16 +49,16 @@ public class TestMessage {
 
         assertEquals("hello world", message.getMessageContent());
     }
-//
-//    @Test
-//    public void testToString(){
-//        ChatServer server = new ChatServer();
-//        User user1 = new User("bob", server);
-//        User user2 = new User("jake", server);
-//
-//        Message message = new Message(user1, List.of(user2), "hello world");
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
-//
-//        assertEquals("[" + message.getTimestamp().format(formatter) + "] bob -> [jake]: hello world", message.toString());
-//    }
+
+    @Test
+    public void testToString(){
+        ChatServer server = new ChatServer();
+        User user1 = new User("bob", server);
+        User user2 = new User("jake", server);
+
+        Message message = new Message(user1, List.of(user2), "hello world");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+
+        assertEquals("[" + message.getTimestamp().format(formatter) + "] " + user1 + " -> [" + user2 + "]: hello world", message.toString());
+    }
 }
