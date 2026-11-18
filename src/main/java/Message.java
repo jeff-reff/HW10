@@ -3,23 +3,23 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class Message {
-    private final String sender;
-    private final List<String> recipients;
+    private final User sender;
+    private final List<User> recipients;
     private final LocalDateTime timestamp;
     private final String messageContent;
 
-    public Message (String sender, List<String> recipients, String messageContent){
+    public Message (User sender, List<User> recipients, String messageContent){
         this.sender = sender;
         this.recipients = recipients;
         this.messageContent = messageContent;
         this.timestamp = LocalDateTime.now();
     }
 
-    public String getSender(){
+    public User getSender(){
         return sender;
     }
 
-    public List<String> getRecipients(){
+    public List<User> getRecipients(){
         return recipients;
     }
 
