@@ -17,20 +17,22 @@ public class TestMessage {
         assertEquals(user1, message.getSender());
     }
 
-//    @Test
-//    public void testGetRecipients(){
-//        String user1 = "bob";
-//        String user2 = "jake";
-//
-//        Message message = new Message(user1, List.of(user2), "hello world");
-//
-//        assertEquals(List.of(user2), message.getRecipients());
-//    }
+    @Test
+    public void testGetRecipients(){
+        ChatServer server = new ChatServer();
+        User user1 = new User("bob", server);
+        User user2 = new User("jake", server);
+
+        Message message = new Message(user1, List.of(user2), "hello world");
+
+        assertEquals(List.of(user2), message.getRecipients());
+    }
 
 //    @Test
 //    public void testGetTimestamp(){
-//        String user1 = "bob";
-//        String user2 = "jake";
+//        ChatServer server = new ChatServer();
+//        User user1 = new User("bob", server);
+//        User user2 = new User("jake", server);
 //
 //        Message message = new Message(user1, List.of(user2), "hello world");
 //
@@ -50,8 +52,9 @@ public class TestMessage {
 //
 //    @Test
 //    public void testToString(){
-//        String user1 = "bob";
-//        String user2 = "jake";
+//        ChatServer server = new ChatServer();
+//        User user1 = new User("bob", server);
+//        User user2 = new User("jake", server);
 //
 //        Message message = new Message(user1, List.of(user2), "hello world");
 //        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
