@@ -28,16 +28,16 @@ public class TestMessage {
         assertEquals(List.of(user2), message.getRecipients());
     }
 
-//    @Test
-//    public void testGetTimestamp(){
-//        ChatServer server = new ChatServer();
-//        User user1 = new User("bob", server);
-//        User user2 = new User("jake", server);
-//
-//        Message message = new Message(user1, List.of(user2), "hello world");
-//
-//        assertNotNull(message.getTimestamp());
-//    }
+    @Test
+    public void testGetTimestamp(){
+        ChatServer server = new ChatServer();
+        User user1 = new User("bob", server);
+        User user2 = new User("jake", server);
+
+        Message message = new Message(user1, List.of(user2), "hello world");
+
+        assertNotNull(message.getTimestamp());
+    }
 //
 //    @Test
 //    public void testGetMessageContent(){
