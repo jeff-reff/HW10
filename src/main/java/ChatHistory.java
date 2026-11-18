@@ -25,4 +25,8 @@ public class ChatHistory {
     public void removeMessage(Message message){
         messages.remove(message);
     }
+
+    public List<Message> getMessages(){
+        return new ArrayList<>(messages);
+    }
 }
