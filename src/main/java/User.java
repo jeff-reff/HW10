@@ -7,7 +7,7 @@ public class User {
     }
 
     public String getUserName(){
-        return null;
+        return userName;
     }
 
     public void sendMessage(String messageContent, User recipients){
