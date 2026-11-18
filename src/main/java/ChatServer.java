@@ -17,7 +17,14 @@ public class ChatServer {
     }
 
     public Message sendMessage(User sender, List<User> recipients, String messageContent) {
-        return null;
+        Message message = new Message(sender, recipients, messageContent);
+        sender.addMessageToHistory(message);
+
+        for (User recipient : recipients){
+            recipient.recieveMessage(message);
+        }
+
+        return message;
     }
 
     public void blockUserMessages(User receiver, User blockedUser){
