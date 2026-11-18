@@ -38,17 +38,17 @@ public class TestMessage {
 
         assertNotNull(message.getTimestamp());
     }
-//
-//    @Test
-//    public void testGetMessageContent(){
-//        ChatServer server = new ChatServer();
-//        User user1 = new User("bob", server);
-//        User user2 = new User("jake", server);
-//
-//        Message message = new Message(user1, List.of(user2), "hello world");
-//
-//        assertEquals("hello world", message.getMessageContent());
-//    }
+
+    @Test
+    public void testGetMessageContent(){
+        ChatServer server = new ChatServer();
+        User user1 = new User("bob", server);
+        User user2 = new User("jake", server);
+
+        Message message = new Message(user1, List.of(user2), "hello world");
+
+        assertEquals("hello world", message.getMessageContent());
+    }
 //
 //    @Test
 //    public void testToString(){
