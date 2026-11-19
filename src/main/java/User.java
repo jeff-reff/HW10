@@ -25,8 +25,10 @@ public class User {
         lastMessageSent = server.sendMessage(this, recipientList, messageContent);
     }
 
-    public void recieveMessage(Message message){
+    public void receiveMessage(Message message){
+        addMessageToHistory(message);
 
+        System.out.println(userName + " received message: " + message);
     }
 
     public void undoLastMessage() {
