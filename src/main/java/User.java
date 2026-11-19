@@ -19,7 +19,7 @@ public class User {
         return userName;
     }
 
-    public void sendMessage(String messageContent, User recipients){
+    public void sendMessage(String messageContent, User... recipients){
         List<User> recipientList = new ArrayList<>(List.of(recipients));
         messageSnapshot = null;
         lastMessageSent = server.sendMessage(this, recipientList, messageContent);
