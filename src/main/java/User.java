@@ -23,6 +23,10 @@ public class User {
         List<User> recipientList = new ArrayList<>(List.of(recipients));
         messageSnapshot = null;
         lastMessageSent = server.sendMessage(this, recipientList, messageContent);
+
+        if (lastMessageSent != null){
+            messageSnapshot = new MessageMemento(lastMessageSent.getMessageContent(), lastMessageSent.getTimestamp());
+        }
     }
 
     public void receiveMessage(Message message){
@@ -32,7 +36,14 @@ public class User {
     }
 
     public void undoLastMessage() {
-
+        if (lastMessageSent == null || messageSnapshot == null) {
+            System.out.println("no message to undo from " + userName);
+            return;
+        }
+        System.out.println("undoing - " + messageSnapshot.getMessageContent() + " - from: " + userName);
+        server.undoMessage(this, lastMessageSent);
+        lastMessageSent = null;
+        messageSnapshot = null;
     }
 
     public void addMessageToHistory(Message message){
