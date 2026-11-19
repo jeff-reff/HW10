@@ -21,7 +21,7 @@ public class ChatServer {
         sender.addMessageToHistory(message);
 
         for (User recipient : recipients){
-            recipient.recieveMessage(message);
+            recipient.receiveMessage(message);
         }
 
         return message;
