@@ -27,4 +27,18 @@ public class TestUser {
         assertEquals(1, user2.viewChatHistory().size());
     }
 
+    @Test
+    public void testUndoLastMessage(){
+        ChatServer server = new ChatServer();
+        User user1 = new User("bob", server);
+        User user2 = new User("jake", server);
+
+        user1.sendMessage("Hello jake", user2);
+
+        assertEquals(1, user2.viewChatHistory().size());
+
+        user1.undoLastMessage();
+
+        assertEquals(0, user2.viewChatHistory().size());
+    }
 }
