@@ -32,6 +32,10 @@ public class ChatServer {
     }
 
     public void undoMessage(User sender, Message message){
-        
+        sender.removeMessageFromHistory(message);
+
+        for (User recipient : message.getRecipients()){
+            recipient.removeMessageFromHistory(message);
+        }
     }
 }
