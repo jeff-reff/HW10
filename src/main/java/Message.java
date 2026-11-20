@@ -33,7 +33,16 @@ public class Message {
 
     @Override
     public String toString(){
+        StringBuilder recipientNames = new StringBuilder();
+
+        for (User recipient : recipients){
+            recipientNames.append(recipient.getUserName()).append(", ");
+        }
+        if (!recipients.isEmpty()){
+            recipientNames.setLength(recipientNames.length() - 2);
+        }
+
         String time = timestamp.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-        return "[" + time + "] " + sender + " -> " + recipients + ": " + messageContent;
+        return "[" + time + "] " + sender.getUserName() + " -> " + recipientNames + ": " + messageContent;
     }
 }
