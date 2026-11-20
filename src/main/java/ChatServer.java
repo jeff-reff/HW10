@@ -45,7 +45,7 @@ public class ChatServer {
         }
     }
 
-    private boolean isBlocked (User sender, User receiver){
+    private boolean isBlocked (User receiver, User sender){
         return blockedUsers.getOrDefault(receiver, Set.of()).contains(sender);
     }
 }

@@ -27,6 +27,7 @@ public class TestUser {
         assertEquals(1, user2.viewChatHistory().size());
     }
 
+    //testing if a user can undo the last message they sent with the Memento design pattern
     @Test
     public void testUndoLastMessage(){
         ChatServer server = new ChatServer();
