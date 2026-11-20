@@ -28,7 +28,8 @@ public class ChatServer {
     }
 
     public void blockUserMessages(User receiver, User blockedUser){
-
+        blockedUsers.computeIfAbsent(receiver, ignored -> new HashSet<>()).add(blockedUser);
+        System.out.println(receiver.getUserName() + " blocked receiving messages from " + blockedUser.getUserName());
     }
 
     public void undoMessage(User sender, Message message){
