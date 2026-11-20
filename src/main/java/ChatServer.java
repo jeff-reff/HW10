@@ -39,4 +39,8 @@ public class ChatServer {
             recipient.removeMessageFromHistory(message);
         }
     }
+
+    private boolean isBlocked (User sender, User receiver){
+        return blockedUsers.getOrDefault(receiver, Set.of()).contains(sender);
+    }
 }
