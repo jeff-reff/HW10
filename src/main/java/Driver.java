@@ -1,3 +1,5 @@
+import java.util.Iterator;
+
 public class Driver {
     public static void main(String[] args){
         ChatServer server = new ChatServer();
@@ -20,6 +22,12 @@ public class Driver {
         System.out.println("View chat history for a specific user:");
         for (Message message : bob.viewChatHistory()){
             System.out.println(message);
+        }
+
+        System.out.println("dave's messages with jake");
+        Iterator<Message> messagesWithJake = dave.iterator(jake);
+        while (messagesWithJake.hasNext()){
+            System.out.println(messagesWithJake.next());
         }
     }
 }
