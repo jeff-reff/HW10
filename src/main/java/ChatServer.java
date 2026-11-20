@@ -21,7 +21,12 @@ public class ChatServer {
         sender.addMessageToHistory(message);
 
         for (User recipient : recipients){
-            recipient.receiveMessage(message);
+            if (users.containsValue(recipient) && !isBlocked(recipient, sender)) {
+                recipient.receiveMessage(message);
+            } else if (users.containsValue(recipient)){
+                System.out.println(recipient.getUserName() + " has a blocked message from " + sender.getUserName());
+            }
+
         }
 
         return message;
