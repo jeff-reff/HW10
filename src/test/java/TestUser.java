@@ -23,8 +23,8 @@ public class TestUser {
 
         user1.sendMessage("Hello jake and dave", user2, user3);
 
-        assertEquals(1, user1.viewChatHistory().size());
         assertEquals(1, user2.viewChatHistory().size());
+        assertEquals(1, user3.viewChatHistory().size());
     }
 
     //testing if a user can undo the last message they sent with the Memento design pattern
@@ -41,5 +41,19 @@ public class TestUser {
         user1.undoLastMessage();
 
         assertEquals(0, user2.viewChatHistory().size());
+    }
+
+    @Test
+    public void testReceivingMessagesAndViewingChatHistory(){
+        ChatServer server = new ChatServer();
+        User user1 = new User("bob", server);
+        User user2 = new User("jake", server);
+
+        user1.sendMessage("Hello jake", user2);
+        List<Message> user1History = user1.viewChatHistory();
+
+        assertEquals(1, user1.viewChatHistory().size());
+
+        assertEquals("Hello jake", user1History.get(0).getMessageContent());
     }
 }
